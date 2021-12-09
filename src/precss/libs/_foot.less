@@ -1,5 +1,5 @@
 .modal-overlay{
-	// display: none;   //switch
+	display: none;   //switch
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -43,9 +43,11 @@
 }
 
 .modal{
-	// display: none;   //switch
+	display: none;   //switch
 	text-align: center;
 	padding: 10px; //temp
+	padding-top: 90px;
+	padding-bottom: 90px;
 	width: 97%;
 	max-width: 955px;
 	position: absolute;
@@ -59,17 +61,17 @@
 	transform: translate(-50%, -50%);
 
 	&.active{
-		display: block;
+		display: flex;
 	}
 }
 
 .modal-form{
-	display: flex;
-	// display: none;    //switch
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin: 0 auto;
+	padding-top: 90px;
+	padding-bottom: 90px;
 
 	&__title{
 		font-size: 48px;
@@ -129,7 +131,6 @@
 
 
 .modal-video{
-	display: none;    //switch
 	padding: 10px;
 	position: relative;
 
@@ -140,11 +141,12 @@
 		width: 79%;
 		height: 77%;
 	}
+	&.active{
+		display: block;
+	}
 }
 
 .modal-alert{
-	display: flex;
-	display: none;     //switch
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
