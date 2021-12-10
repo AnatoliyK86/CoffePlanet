@@ -26,7 +26,6 @@ body{
 	line-height: 1.5;
 }
 
-
 ::-webkit-scrollbar{
 	width: 7px;
 	height: 5px;
@@ -180,8 +179,7 @@ a{
 	}
 
 	&:hover{
-		border-top-color: @colorMain;
-		
+		border-top-color: @colorMain;	
 	}
 
 	&hover::before,
@@ -205,13 +203,9 @@ a{
 			transform: translateY(50%) rotate(-45deg);
 		}
 		&::before{
-			transform: translateY(-50%) rotate(45deg);
-			
+			transform: translateY(-50%) rotate(45deg);		
 		}
-
 	}
-
-
 
 	.media-max(777px, {
 		display: inline-block;
@@ -396,6 +390,9 @@ a{
 	&__pic {
 		margin-bottom: 26px;
 		width: 100%;
+		.media-max(650px, {
+			margin-bottom: 20px;
+		});
 	}
 
 	&__name {
@@ -428,6 +425,7 @@ a{
 			width: 100%;
 			margin-left: auto;
 			margin-right: auto;
+			padding-right: 0;
 		});
 
 	}
@@ -552,9 +550,80 @@ a{
 		padding-bottom: 60px;
 	});
 
-	// &__h{
+	&__h{
+		margin-bottom: 28px;
+	}
 
-	// }
+	&__text{
+		margin-bottom: 70px;
+		.media-max(700px, {
+			margin-bottom: 45px;
+		});
+	}
 
+	&__list{
+		margin: 0;
+		padding: 0;
+		.row-flex();
+	}
 
+	&__item{
+		padding-top: 106px;
+		padding-bottom: 18px;
+		width: 25%;
+		text-align: center;
+		font-size: 16px;
+		font-weight: @fontSBold;
+		position: relative;
+		.media-max(700px, {
+			width: 50%;
+			&:nth-child(n+3){
+				border-top: 1px solid #ddd;
+			}
+			&:nth-child(odd){
+				border-left: none;
+			}
+		});
+		.media-max(400px, {
+			font-size: 14px;
+		});
+
+		& + &{
+			border-left: 1px solid #ddd;
+		}
+
+		&::before,
+		&::after{                  //кругляшок
+			content: '';
+			display: block;
+			position: absolute;
+			@size: 70px;
+			width: @size;
+			height: @size;
+			left: 50%;
+			transform: translateX(-50%);
+			top: 18px;
+			background-color: #eaf4eb;
+			border-radius: 50%;
+		}
+		&::after{                        //размер фоновой картинки
+			@size: 70px;
+			background-size: @size @size;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+
+		&_drinks::after{
+			background-image: url(../img/icons/ico-features-1.svg);
+		}
+		&_sweets::after{
+			background-image: url(../img/icons/ico-features-2.svg);
+		}
+		&_wifi::after{
+			background-image: url(../img/icons/ico-features-3.svg);
+		}
+		&_seats::after{
+			background-image: url(../img/icons/ico-features-4.svg);
+		}
+	}
 }
