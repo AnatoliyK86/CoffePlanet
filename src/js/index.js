@@ -22,12 +22,87 @@ preloader.addEventListener('animationend', function(e){
 	} 
 });
 
+let mobileBtn = document.querySelector('.btn-mobile');
+let headerNav = document.querySelector('.main-header__nav');
 
+function mobileMenuOpen(){
+	mobileBtn.classList.add('is-open');
+	headerNav.classList.add('is-open');
+	document.body.classList.add('ov-h');
+	headerNav.classList.add('animate__animated');
 
+}
+
+function mobileMenuClose(){
+	document.body.classList.remove('ov-h');
+	mobileBtn.classList.remove('is-open');
+	headerNav.classList.remove('is-open');
+	headerNav.classList.remove('animate__animated');
+}
+
+mobileBtn.addEventListener('click', () => {
+	if( mobileBtn.classList.contains('is-open') ){
+		mobileMenuClose();
+	} else {
+		mobileMenuOpen();
+	}
+});
+
+headerNav.addEventListener('click', e => {
+	if( headerNav.classList.contains('is-open') ){
+		mobileMenuClose();
+	} 
+});
+
+let modalBtns = document.querySelectorAll('.btn-modal');
+let modalOverlay = document.querySelector('.modal-overlay');
+let modalModals = document.querySelectorAll('.modal');
+let modalCloser = document.querySelector('.modal-overlay__close');
+
+function modalOpen(e){
+	e.preventDefault();
+	let anchor = e.target.getAttribute('data-href');
+	let goal = document.querySelector(anchor);
+
+	modalOverlay.classList.add('active');
+	modalOverlay.classList.add('animate__animated');
+	goal.classList.add('active');
+	goal.classList.add('animate__animated');
+	document.body.classList.add('ov-h');
+}
+
+function modalClose() {
+	let actives = document.querySelectorAll('.modal-overlay.active, .modal.active');
+	actives.forEach( active => {
+		active.classList.remove('active');
+		active.classList.remove('animate__animated');
+
+	});
+	document.body.classList.remove('ov-h');
+}
+
+modalBtns.forEach( modalBtn => {
+	modalBtn.addEventListener('click', modalOpen);
+});
+
+modalCloser.addEventListener('click', modalClose);
+modalModals.forEach( modal => {
+	modal.addEventListener('click', e => {
+		e.stopPropagation();
+	});
+});
+modalOverlay.addEventListener('click', modalClose);
+
+window.addEventListener('keydown', e => {
+	if( e.key === 'Escape' ) {
+		modalClose();
+		mobileMenuClose();
+	}
+});
 
 // let objs = [
 // 	'.cup',
-// 	'.steam',
+// 	'.steam', 
 // 	'.sleeve',
 // 	'.lid'
 // ];
