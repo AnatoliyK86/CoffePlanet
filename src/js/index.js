@@ -100,6 +100,28 @@ window.addEventListener('keydown', e => {
 	}
 });
 
+let tabLinks = document.querySelectorAll('.tabs_link');
+function tabsToggle(e){
+	e.preventDefault();
+	let anchor = e.target.getAttribute('href');
+	let goal = document.querySelector(anchor);
+
+	let actives = document.querySelectorAll('.tabs__item.active, .tabs-content__section.active');
+	actives.forEach( active => {
+		active.classList.remove('active');
+		active.classList.remove('animate__animated');
+	});
+	e.target.parentElement.classList.add('active');
+	goal.classList.add('active');
+	goal.classList.add('animate__animated');
+}
+
+tabLinks.forEach( tabLink => {
+	tabLink.addEventListener('click', tabsToggle);
+});
+
+
+
 // let objs = [
 // 	'.cup',
 // 	'.steam', 
