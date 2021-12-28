@@ -1,6 +1,7 @@
 import WOW from 'wow.js';
 import $ from 'jquery';
 import 'slick-carousel';
+import { createFocusTrap } from 'focus-trap'; 
 
 let wow = new WOW({
 	boxClass:     'animate',     
@@ -24,20 +25,24 @@ preloader.addEventListener('animationend', function(e){
 
 let mobileBtn = document.querySelector('.btn-mobile');
 let headerNav = document.querySelector('.main-header__nav');
+let mobileMenuTrap = createFocusTrap('.main-header__nav');
 
 function mobileMenuOpen(){
 	mobileBtn.classList.add('is-open');
 	headerNav.classList.add('is-open');
 	document.body.classList.add('ov-h');
+	headerNav.querySelector('a').focus();
 	headerNav.classList.add('animate__animated');
-
+	mobileMenuTrap.activate();
 }
 
 function mobileMenuClose(){
+	mobileMenuTrap.deactivate();
+	headerNav.classList.remove('animate__animated');
 	document.body.classList.remove('ov-h');
 	mobileBtn.classList.remove('is-open');
 	headerNav.classList.remove('is-open');
-	headerNav.classList.remove('animate__animated');
+	
 }
 
 mobileBtn.addEventListener('click', () => {
@@ -58,6 +63,9 @@ let modalBtns = document.querySelectorAll('.btn-modal');
 let modalOverlay = document.querySelector('.modal-overlay');
 let modalModals = document.querySelectorAll('.modal');
 let modalCloser = document.querySelector('.modal-overlay__close');
+let modalTrap = createFocusTrap(modalOverlay, {
+	initialFocus: '.modal.active'
+});
 
 function modalOpen(e){
 	e.preventDefault();
@@ -68,7 +76,9 @@ function modalOpen(e){
 	modalOverlay.classList.add('animate__animated');
 	goal.classList.add('active');
 	goal.classList.add('animate__animated');
+	goal.setAttribute('tabindex', 0);
 	document.body.classList.add('ov-h');
+	modalTrap.activate();
 }
 
 function modalClose() {
@@ -76,8 +86,9 @@ function modalClose() {
 	actives.forEach( active => {
 		active.classList.remove('active');
 		active.classList.remove('animate__animated');
-
+		active.removeAttribute('tabindex');
 	});
+	modalTrap.deactivate();
 	document.body.classList.remove('ov-h');
 }
 
@@ -110,10 +121,13 @@ function tabsToggle(e){
 	actives.forEach( active => {
 		active.classList.remove('active');
 		active.classList.remove('animate__animated');
+		active.removeAttribute('tabindex');
 	});
 	e.target.parentElement.classList.add('active');
 	goal.classList.add('active');
 	goal.classList.add('animate__animated');
+	goal.setAttribute('tabindex', 0);
+	goal.focus();
 }
 
 tabLinks.forEach( tabLink => {
@@ -122,7 +136,7 @@ tabLinks.forEach( tabLink => {
 
 let header = document.querySelector('.main-header');
 function stickyHeader(){
-	console.log(1);
+	// console.log(1);
 	if( window.scrollY > 500 ){
 		header.classList.add('scrolled');
 	} else{
