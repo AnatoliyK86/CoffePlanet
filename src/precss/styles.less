@@ -634,3 +634,232 @@ a{
 		}
 	}
 }
+
+
+.reviews{
+	padding-top: 112px;
+	padding-bottom: 85px;
+	.media-max(650px, {
+		padding-top: 56px;
+		padding-bottom: 60px;
+	});
+
+	&__h{
+		margin-bottom: 28px;
+	}
+
+	&__item{
+		min-height: 512px;
+		.size(4);
+		.col();
+		position: relative;
+		border-radius: 10px;
+		padding-left: 32px;
+		padding-right: 32px;
+		box-shadow: 0px 3px 6px 0px #0000001A;
+		.media-max(650px, {
+			.size(6);
+		});
+		.media-max(450px, {
+			.size(12);
+			// justify-content: center;
+		});
+
+		&_user{
+			padding-top: 228px;
+			margin-bottom: 21px;
+			font-size: 18px;
+			font-weight: @fontSBold;
+			line-height: 22px;
+			color: #333333;
+		}
+
+		&_text{
+			margin-bottom: 32px;
+			.media-max(700px, {
+				margin-bottom: 20px;
+			});
+		}
+
+		&_data{
+			display: inline-block;
+			font-style: italic;
+			color: #777777;
+			margin-bottom: 70px;
+		}
+
+		&::before,
+		&::after{                  //кругляшок
+			content: '';
+			display: block;
+			position: absolute;
+			@size: 120px;
+			width: @size;
+			height: @size;
+			left: 32px;
+			top: 70px;
+			background-color: #eaf4eb;
+			border-radius: 50%;
+		}
+		&::after{                        //размер фоновой картинки
+			@size: 120px;
+			background-size: @size @size;
+			background-repeat: no-repeat;
+		}
+
+		&_first::after{
+			background-image: url(../img/img-feedback-1.jpg);
+		}
+
+		&_second::after{
+			background-image: url(../img/img-feedback-2.jpg);
+		}
+
+		&_third::after{
+			background-image: url(../img/img-feedback-3.jpg);
+		}
+	}
+}
+
+.footer{
+	padding-top: 85px;
+	.media-max(920px, {
+		padding-top: 45px;
+	});
+	&__container{
+		display: flex;
+		min-height: 461px;
+		margin-bottom: 25px;
+		.media-max(920px, {
+			flex-direction: column;
+		});
+	}
+}
+
+.contacts{
+	width: 33.3%;
+	height: 100%;
+	.media-max(920px, {
+		width: 100%;
+	});
+
+	&__list{
+		margin-bottom: 45px;
+		.media-max(650px, {
+			margin-bottom: 25px;
+		});
+	}
+
+	&__title{
+		font-size: 48px;
+		line-height: 59px;
+		margin-top: 72px;
+		margin-bottom: 58px;
+		text-align: left;
+		.media-max(920px, {
+			text-align: center;
+		});
+		.media-max(650px, {
+			margin-top: 20px;
+			margin-bottom: 29px;
+		});
+	}
+	
+	&__item{
+		line-height: 20px;
+		margin-bottom: 18px;
+		padding-left: 32px;
+		padding-right: 10px;
+		position: relative;
+		&::before{                  
+			content: '';
+			display: block;
+			position: absolute;
+			@size: 20px;
+			width: @size;
+			height: @size;
+			left: 0px;
+			top: 0px;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		&_time::before{
+			background-image: url(../img/icons/ico-time.svg);
+			background-size: 16px 16px;
+		}
+		&_adress::before{
+			background-image: url(../img/icons/ico-adress.svg);
+			background-size: 14px 19px;
+		}
+		&_phone::before{
+			background-image: url(../img/icons/ico-phone.svg);
+			background-size: 12px 16px;
+		}
+		&_mail::before{
+			background-image: url(../img/icons/ico-email.svg);
+			background-size: 15px 10px;
+		}
+	}
+
+	&__links{
+		display: flex;
+		margin-bottom: 45px;
+		.media-max(650px, {
+			margin-bottom: 25px;
+		});
+
+		&__item{
+			margin-right: 10px;
+
+			&_facebook{
+				display: inline-block;
+				width: 20px;
+				height: 26px;
+				background-image: url(../img/icons/ico-facebook.svg);
+				background-size: 14px 26px;
+				background-position: center;
+				background-repeat: no-repeat;
+				&:hover,
+				&:focus,
+				&:active{
+					background-image: url(../img/icons/ico-facebook_hov.svg);
+				}
+			}
+			&_instagram{
+				display: inline-block;
+				width: 26px;
+				height: 26px;
+				background-image: url(../img/icons/ico-instagram.svg);
+				background-size: 26px 26px;
+				background-position: center;
+				background-repeat: no-repeat;
+				&:hover,
+				&:focus,
+				&:active{
+					background-image: url(../img/icons/ico-instagram_hov.svg);
+				}
+			}
+		}
+	}
+}
+
+.map{
+	width: 66.6%;
+	.media-max(920px, {
+		width: 100%;
+	});
+
+	&__link{
+		display: block;
+	}
+}
+
+.copyright{
+	font-size: 14px;
+	line-height: 17px;
+	color: @colorTGreySections;
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 36px;
+}
+
