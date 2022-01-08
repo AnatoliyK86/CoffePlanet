@@ -171,6 +171,29 @@ function throttle( func, time ){
 
 window.addEventListener('scroll', throttle(stickyHeader, 300));
 
+
+let form = document.querySelector('form');
+		form.addEventListener('submit', async function(e){
+			e.preventDefault();
+			let data = new FormData(e.target);  //собираем данные с формы, для отправки
+			try {
+				let response = await fetch(e.target.action, {
+					method: 'POST',
+					body: data
+				});
+				if ( response.ok ){
+					let text = await response.text();
+					form.querySelector('button[type="submit"]').setAttribute('disabled', true);
+					console.log(text);
+				} else {
+					console.log('Ошибка!');
+				}
+			} catch(e){
+				console.log(e);
+			}
+		});
+
+		
 // let objs = [
 // 	'.cup',
 // 	'.steam', 
