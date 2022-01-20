@@ -6,7 +6,8 @@
 	$subject = $subject . $tel;
 	$message = 'Пришла новая заявка от ' . $name . '. Телефон клиента: ' . $tel;
 	mail($address, $subject, $message);
-	header("Location: http://s63102ke.beget.tech/");
-	echo 'OK';
+	// header("Location: http://s63102ke.beget.tech/");
+	// echo 'OK';
+	
 	exit;
 ?>

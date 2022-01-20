@@ -43,6 +43,7 @@
     "animate.css": "^4.1.1",
     "focus-trap": "^6.7.1",
     "jquery": "^3.6.0",
+    "loading-attribute-polyfill": "^2.0.1",
     "slick-carousel": "^1.8.1",
     "wow.js": "^1.2.2"
   }

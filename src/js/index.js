@@ -1,3 +1,4 @@
+import 'loading-attribute-polyfill';
 import WOW from 'wow.js';
 import $ from 'jquery';
 import 'slick-carousel';
@@ -169,7 +170,7 @@ function throttle( func, time ){
 }
 
 
-window.addEventListener('scroll', throttle(stickyHeader, 300));
+window.addEventListener('scroll', throttle(stickyHeader, 300), {passive: true});
 
 
 let form = document.querySelector('form');
@@ -184,16 +185,18 @@ let form = document.querySelector('form');
 				if ( response.ok ){
 					let text = await response.text();
 					form.querySelector('button[type="submit"]').setAttribute('disabled', true);
+					
 					console.log(text);
 				} else {
 					console.log('Ошибка!');
 				}
 			} catch(e){
-				console.log(e);
+				document.querySelector('#modal-alert').modalOpen();
+				// console.log(e);
 			}
 		});
 
-		
+
 // let objs = [
 // 	'.cup',
 // 	'.steam', 
