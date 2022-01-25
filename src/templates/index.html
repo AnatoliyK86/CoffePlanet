@@ -3,6 +3,32 @@
 
 {% include 'parts/_head.html' %}
 
+{% 
+	set menuLinks = [
+	{
+		text: "Menu",
+		link: "#menu",
+		active: "active"
+	},
+	{
+		text: "About",
+		link: "#about"
+	},
+	{
+		text: "Features",
+		link: "#features"
+	},     
+	{
+		text: "Contacts",
+		link: "#contacts"
+	},   
+	{
+		text: "Blog",
+		link: "blog.html"
+	}          
+	]
+%}
+
 {% include 'parts/_header.html' %}
 
 <aside class="banner">
