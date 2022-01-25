@@ -1,0 +1,207 @@
+{% set title="Blog-post" %}
+{% set lang="en" %}
+
+{% include 'parts/_head.html' %}
+
+{% 
+	set menuLinks = [
+	{
+		text: "Post",
+		link: "post.html"
+	},     
+	{
+		text: "Contacts",
+		link: "#contacts"
+	},   
+	{
+		text: "Blog",
+		link: "blog.html",
+		active: "active"
+	}          
+	]
+%}
+
+{% include 'parts/_header.html' %}
+
+
+
+<main class="wrapper">
+	<h1 class="animate animate__fadeInUp menu__h blog__heading">
+		Latest Blog Posts
+	</h1>
+	<section class="blog__container">
+		<article class="animate animate__fadeInUp">
+			<picture>
+				<noscript class="loading-lazy">
+					<source srcset="img/webp/img-blog-1.webp" type="image/webp">	
+					<img laoding="lazy" src="img/img-blog-1.jpg" alt="article" class="article__pic" width="373" height="216">
+				</noscript>
+			</picture>
+			<a href="post.html">
+				<h1 class="article__h">
+					Oat Milk — Coffee's Eco-Friendly Companion
+				</h1>
+			</a>
+			<time class="article__date">Jul 2, 2020</time>
+		</article>
+
+		<article class="animate animate__fadeInUp">
+			<picture>
+				<noscript class="loading-lazy">
+					<source srcset="img/webp/img-blog-2.webp" type="image/webp">	
+					<img laoding="lazy" src="img/img-blog-2.jpg" alt="article" class="article__pic" width="373" height="216">
+				</noscript>
+			</picture>
+			<a href="#">
+				<h1 class="article__h">
+					How to Market Your Cafe as an Ideal Place to Work
+				</h1>
+			</a>
+			<time class="article__date">Feb 25, 2020</time>
+		</article>
+
+		<article class="animate animate__fadeInUp">
+			<picture>
+				<noscript class="loading-lazy">
+					<source srcset="img/webp/img-blog-3.webp" type="image/webp">	
+					<img laoding="lazy" src="img/img-blog-3.jpg" alt="article" class="article__pic" width="373" height="216">
+				</noscript>
+			</picture>
+			<a href="#">
+				<h1 class="article__h">
+					Tips for Creating an Effective Cafe Branding Strategy
+				</h1>
+			</a>
+			<time class="article__date">Feb 22, 2020</time>
+		</article>
+
+		<article class="animate animate__fadeInUp">
+			<picture>
+				<noscript class="loading-lazy">
+					<source srcset="img/webp/img-blog-4.webp" type="image/webp">	
+					<img laoding="lazy" src="img/img-blog-4.jpg" alt="article" class="article__pic" width="373" height="216">
+				</noscript>
+			</picture>
+			<a href="#">
+				<h1 class="article__h">
+					Unlock the Power of Social Media Marketing for Your Cafe
+				</h1>
+			</a>
+			<time class="article__date">Jan 23, 2020</time>
+		</article>
+
+		<article class="animate animate__fadeInUp">
+			<picture>
+				<noscript class="loading-lazy">
+					<source srcset="img/webp/img-blog-5.webp" type="image/webp">	
+					<img laoding="lazy" src="img/img-blog-5.jpg" alt="article" class="article__pic" width="373" height="216">
+				</noscript>
+			</picture>
+			<a href="#">
+				<h1 class="article__h">
+					The Pros and Cons Experienced by Coffee Professionals
+				</h1>
+			</a>
+			<time class="article__date">Jan 8, 2019</time>
+		</article>
+
+		<article class="animate animate__fadeInUp">
+			<picture>
+				<noscript class="loading-lazy">
+					<source srcset="img/webp/img-blog-6.webp" type="image/webp">	
+					<img laoding="lazy" src="img/img-blog-6.jpg" alt="article" class="article__pic" width="373" height="216">
+				</noscript>
+			</picture>
+			<a href="#">
+				<h1 class="article__h">
+					Bangkok Cafe and Neighbourhood Guide
+				</h1>
+			</a>
+			<time class="article__date">Dec 8, 2018</time>
+		</article>
+
+		<article class="animate animate__fadeInUp">
+			<picture>
+				<noscript class="loading-lazy">
+					<source srcset="img/webp/img-blog-7.webp" type="image/webp">	
+					<img laoding="lazy" src="img/img-blog-7.jpg" alt="article" class="article__pic" width="373" height="216">
+				</noscript>
+			</picture>
+			<a href="#">
+				<h1 class="article__h">
+					Tel Aviv Specialty Coffee and Travel Guide
+				</h1>
+			</a>
+			<time class="article__date">Nov 16, 2018</time>
+		</article>
+
+		<article class="animate animate__fadeInUp">
+			<picture>
+				<noscript class="loading-lazy">
+					<source srcset="img/webp/img-blog-8.webp" type="image/webp">	
+					<img laoding="lazy" src="img/img-blog-8.jpg" alt="article" class="article__pic" width="373" height="216">
+				</noscript>
+			</picture>
+			<a href="#">
+				<h1 class="article__h">
+					7 Easy Ways to Increase Your Cafe’s Foot Traffic
+				</h1>
+			</a>
+			<time class="article__date">Nov 15, 2018</time>
+		</article>
+
+		<article class="animate animate__fadeInUp">
+			<picture>
+				<noscript class="loading-lazy">
+					<source srcset="img/webp/img-blog-9.webp" type="image/webp">	
+					<img laoding="lazy" src="img/img-blog-9.jpg" alt="article" class="article__pic" width="373" height="216">
+				</noscript>
+			</picture>
+			<a href="#">
+				<h1 class="article__h">
+					Chemex Coffee Maker — Review and Brew Guide
+				</h1>
+			</a>
+			<time class="article__date">Nov 15, 2018</time>
+		</article>
+	</section>
+<nav class="animate__fadeIn blog__navigation">
+	<ul class="blog__navigation_links">
+		<li>
+			<a href="#" class="blog__navigation_link">
+				<
+			</a>
+		</li>
+		<li>
+			<a href="#" class="blog__navigation_link active">
+				1
+			</a>
+		</li>
+		<li>
+			<a href="#" class="blog__navigation_link">
+				2
+			</a>
+		</li>
+		<li>
+			<a href="#" class="blog__navigation_link">
+				3
+			</a>
+		</li>
+		<li><span>...</span></li>
+		<li>
+			<a href="#" class="blog__navigation_link">
+				9
+			</a>
+		</li>
+		<li>
+			<a href="#" class="blog__navigation_link">
+				>
+			</a>
+		</li>
+	</ul>
+</nav>
+	
+
+</main>
+
+{% include 'parts/_foot.html' %}

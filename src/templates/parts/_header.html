@@ -9,21 +9,11 @@
 
 		<nav class="animate__fadeIn main-header__nav main-navigation">
 			<ul class="main-navigation__links">
-				<li class="main-navigation__item">
-					<a href="#menu" class="main-navigation__link">Menu</a>
+				{% for item in menuLinks %}
+				<li class="main-navigation__item {{item.active}}">
+					<a href="{{ item.link }}" class="main-navigation__link">{{ item.text }}</a>
 				</li>
-				<li class="main-navigation__item">
-					<a href="#about" class="main-navigation__link">About</a>
-				</li>
-				<li class="main-navigation__item">
-					<a href="#features" class="main-navigation__link">Features</a>
-				</li>
-				<li class="main-navigation__item">
-					<a href="#contacts" class="main-navigation__link">Contacts</a>
-				</li>
-				<li class="main-navigation__item">
-					<a href="#" class="main-navigation__link">Blog</a>
-				</li>
+				{% endfor %}		
 			</ul>
 			
 			<ul class="main-navigation__links main-navigation__links_tels">
