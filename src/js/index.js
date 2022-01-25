@@ -186,12 +186,17 @@ let form = document.querySelector('form');
 					let text = await response.text();
 					form.querySelector('button[type="submit"]').setAttribute('disabled', true);
 					
+					let modalForm = document.querySelector('.modal-form');
+					let modalOk = document.querySelector('.modal-alert');
+
+					modalForm.classList.remove(active);
+					modalOk.classList.add(active);
 					console.log(text);
 				} else {
 					console.log('Ошибка!');
 				}
 			} catch(e){
-				document.querySelector('#modal-alert').modalOpen();
+				// document.querySelector('#modal-alert').modalOpen();
 				// console.log(e);
 			}
 		});
