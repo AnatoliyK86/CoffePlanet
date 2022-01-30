@@ -176,28 +176,33 @@ window.addEventListener('scroll', throttle(stickyHeader, 300), {passive: true});
 let form = document.querySelector('form');
 		form.addEventListener('submit', async function(e){
 			e.preventDefault();
+			const submitBtn = form.querySelector('button[type="submit"]');
+			submitBtn.disabled = true;
+
 			let data = new FormData(e.target);  //собираем данные с формы, для отправки
 			try {
 				let response = await fetch(e.target.action, {
 					method: 'POST',
 					body: data
 				});
+
 				if ( response.ok ){
 					let text = await response.text();
-					form.querySelector('button[type="submit"]').setAttribute('disabled', true);
 					
 					let modalForm = document.querySelector('.modal-form');
 					let modalOk = document.querySelector('.modal-alert');
 
-					modalForm.classList.remove(active);
-					modalOk.classList.add(active);
+					modalForm.classList.remove('active');
+					modalOk.classList.add('active');
 					console.log(text);
-				} else {
+				} 
+				else {
 					console.log('Ошибка!');
 				}
 			} catch(e){
-				// document.querySelector('#modal-alert').modalOpen();
-				// console.log(e);
+				console.log(e);
+			} finally {
+				submitBtn.disabled = false;
 			}
 		});
 
