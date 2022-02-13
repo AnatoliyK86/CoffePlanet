@@ -36,7 +36,7 @@ preloader.addEventListener('animationend', function(e){
 
 let mobileBtn = document.querySelector('.btn-mobile');
 let headerNav = document.querySelector('.main-header__nav');
-let mobileMenuTrap = createFocusTrap('.main-header__nav');
+let mobileMenuTrap = createFocusTrap('.main-header');
 
 function mobileMenuOpen(){
 	mobileBtn.classList.add('is-open');
